@@ -16,8 +16,6 @@ import { v1 } from "uuid";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { MyGrid } from "./components/list/Lista";
 
-const id = v1();
-
 function AddTaskButton() {
   const { control, reset } = useForm<UpdateTaskInput>({
     defaultValues: {
@@ -35,7 +33,7 @@ function AddTaskButton() {
     const { priority, taskName, description } = data;
 
     const newTask: CreatTask = {
-      id: id,
+      id: v1(),
       priority: priority,
       taskName: taskName,
       description: description,
